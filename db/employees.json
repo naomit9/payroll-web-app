@@ -1,0 +1,60 @@
+[
+    {"id":"1",
+    "firstName":"Oscar",
+    "lastName":"Martinez",
+    "hw":33.50
+    },
+
+    {"id":"2",
+    "firstName":"Jim",
+    "lastName":"Halpert",
+    "hw":44.65
+    },
+
+    {"id":"3",
+    "firstName":"Michael",
+    "lastName":"Scott",
+    "hw":57.80
+    },
+
+    {"id":"4",
+    "firstName":"Dwight",
+    "lastName":"Schute",
+    "hw":44.65
+    },
+
+    {"id":"5",
+    "firstName":"Kelly",
+    "lastName":"Kapoor",
+    "hw":32.61
+    },
+
+    {"id":"6",
+    "firstName":"Stanley",
+    "lastName":"Hudson",
+    "hw":40.51
+    },
+    {"id":"7",
+    "firstName":"Phyllis",
+    "lastName":"Vance",
+    "hw":40.51
+    },
+
+    {"id":"8",
+    "firstName":"Pam",
+    "lastName":"Beesley",
+    "hw":29.23
+    },
+
+    {"id":"9",
+    "firstName":"Meredith",
+    "lastName":"Palmer",
+    "hw":31.61
+    },
+
+    {"id":"10",
+    "firstName":"Angela",
+    "lastName":"McKinsey",
+    "hw":33.50
+    }
+]
