@@ -24,7 +24,7 @@ This payroll web application is used to input the employee's working hours and t
 * `employees.json`
 
 ## Live Preview
-[Click here to View Live Preview]()
+[Click here to View Live Preview](https://naomit9.github.io/payroll-web-app/)
 
 ## Reference
-[Norbert BM Web Development](https://www.youtube.com/watch?v=fcKebTH2Zpw&t=183s)
+[Norbert BM Web Development](https://www.youtube.com/@NorbertWebDev)
