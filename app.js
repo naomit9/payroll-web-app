@@ -12,22 +12,22 @@ payrollButton.addEventListener('click', () => {
 let personnelList = [];
 
 //Load the employee list from jSON
-const loadEmployee = async()=>{
-    try{
+const loadEmployee = async() => {
+    try {
         const response = await fetch('db/employees.json');
         personnelList = await response.json();
-        console.log(personnelList);
+        //console.log(personnelList);
 
         displayEmployees(personnelList);
     }
-    catch(e){
+    catch(e) {
         console.log(e);
     }
 };
 
 //Display the employee list to the DOM
-const displayEmployees = (employee)=>{
-    const employeesTable = employee.map(function(employee){
+const displayEmployees = (employee) => {
+    const employeesTable = employee.map(function(employee) {
         return `
         <tr>
         <th scope="col">${employee.id}</th>
@@ -84,7 +84,14 @@ function monthlyPay() {
                     let monthlyPay = e.target.parentElement.parentElement.children[5];
                     const calcMonthlyPay = (hour * hourlyWage).toFixed(2)
                     console.log(calcMonthlyPay)
-                    monthlyPay.innerText = `$` + calcMonthlyPay
+                    monthlyPay.innerText = "$" + calcMonthlyPay;
+
+                    // Save data
+                    saveData(hour);
+
+                    // Calculate total payouts
+                    getTotalPayouts();
+
                 }
             }
         });
@@ -94,9 +101,53 @@ function monthlyPay() {
 
 //Utility functions
 function calcMaxWage(arr) {
-    return Math.max(...arr);
-}
+    return Math.max(...arr)
+};
 
 function calcMinWage(arr) {
-    return Math.min(...arr);
+    return Math.min(...arr)
+};
+
+const calcTotal = (total, num) => {
+    return total + num
+};
+
+function saveData(hour) {
+    let hours;
+
+    if (sessionStorage.getItem("hours") === null) {
+        hours = []
+    } else {
+        hours = JSON.parse(sessionStorage.getItem("hours"))
+    }
+
+    hours.push(hour);
+
+    sessionStorage.setItem("hours", JSON.stringify(hours));
+
+    //console.log(hours)
+
+    const newHours = hours.map((hour) => parseInt(hour));
+
+    let totalHours = newHours.reduce(calcTotal, 0);
+    document.getElementById('Total-WH').innerText = totalHours + ' hours'
+}
+
+function getTotalPayouts() {
+    const allMonthlyPay = document.querySelectorAll(".monthly-pay");
+    //console.log(allMonthlyPay)
+
+    // Convert a NodeList into an Array to use the Math method on it
+    let arrayOfPayouts = Array.from(allMonthlyPay);
+    //console.log(arrayOfPayouts);
+
+    let newPayout = arrayOfPayouts.map((payout) => 
+        parseFloat(payout.innerHTML.substring(1))
+    );
+    newPayout = newPayout.filter((payout) => payout)
+    //console.log(newPayouts)
+
+    let totalPayout = newPayout.reduce(calcTotal, 0);
+    document.getElementById('Total-pay').innerText = "$"  + totalPayout.toFixed(2);
+
 }
