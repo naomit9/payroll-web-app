@@ -3,6 +3,8 @@
 #PayrollTable {
     display: none;
     animation: fade 0.3s ease;
+    width: 80%;
+    margin: auto;
   }
   @keyframes fade {
     0% {
@@ -17,4 +19,30 @@
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+
+  *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 2rem;
+    margin: 2rem;
+  }
+  
+  .instruction {
+    font-size: 18px;
+    width: 30%;
+    margin: auto;
+    margin-top: 2rem;
+  }
+  .main-container {
+    padding-top: 5rem;
+  }
+  .container {
+    display: none;
+    text-align: center;
+    padding: 2rem;
   }

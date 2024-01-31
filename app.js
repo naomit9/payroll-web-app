@@ -2,10 +2,14 @@
 //Show table from button
 const payrollTable = document.getElementById('PayrollTable')
 const payrollButton = document.getElementById('NewPayroll')
+const mainContainer = document.querySelector('.main-container')
+const container = document.querySelector('.container')
 
 payrollButton.addEventListener('click', () => {
     payrollTable.style.display = 'table'
     payrollButton.style.display = 'none'
+    mainContainer.style.display = 'none'
+    container.style.display = 'block'
 }) 
 
 //Get data from JSON file
